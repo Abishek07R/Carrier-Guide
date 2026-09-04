@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrier Guide | Premium 12th Career & Degree Guidance Portal</title>
+    <meta name="description" content="Discover top degree courses, career paths, salary packages, duration, and top 5 best colleges after 12th standard with our premier Career Guide platform.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Main Style -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Gold Ambient Particle Canvas -->
+    <canvas id="goldParticlesCanvas"></canvas>
+
+    <div class="app-wrapper">
+
+        <!-- Top Header Navigation -->
+        <header class="header-nav">
+            <a href="#" class="brand-container" id="navBrandLogo">
+                <div class="brand-logo-icon">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                </div>
+                <div class="brand-text">
+                    <h1>CARRIER GUIDE</h1>
+                    <p>Elite Higher Education Roadmap</p>
+                </div>
+            </a>
+            <div class="header-user-status">
+                <div class="user-badge" id="headerUserBadge">
+                    <i class="fa-solid fa-circle-user"></i>
+                    <span id="headerUserName">Candidate</span>
+                </div>
+                <button class="btn-restart" id="btnRestartApp" title="Restart Session">
+                    <i class="fa-solid fa-arrow-rotate-right"></i> Reset
+                </button>
+            </div>
+        </header>
+
+        <!-- (Stepper Flow Chart Removed as requested) -->
+
+        <!-- ================================================================
+             STEP 1: CANDIDATE VERIFICATION PORTAL
+             ================================================================ -->
+        <section class="step-section active-section" id="sectionStep1">
+            <div class="auth-container">
+                <div class="luxury-card">
+                    <div class="section-header">
+                        <span class="gold-pill-tag"><i class="fa-solid fa-shield-halved"></i> Instant Verification</span>
+                        <h2 class="section-title">Welcome to <span class="gold-text">Carrier Guide</span></h2>
+                        <p class="section-subtitle">Enter your candidate name and 10-digit mobile number to automatically verify and unlock your career guidance roadmap.</p>
+                    </div>
+
+                    <form id="authLoginForm" onsubmit="return false;">
+                        <!-- Name Input -->
+                        <div class="auth-form-group">
+                            <label class="input-label" for="candidateNameInput">Candidate Full Name</label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-user input-icon"></i>
+                                <input type="text" id="candidateNameInput" class="custom-input" placeholder="e.g. Rahul Sharma / Ananya" required autocomplete="name">
+                            </div>
+                        </div>
+
+                        <!-- Phone Number Input -->
+                        <div class="auth-form-group">
+                            <label class="input-label" for="candidatePhoneInput">10-Digit Mobile Number</label>
+                            <div class="phone-input-wrapper">
+                                <span class="country-prefix">🇮🇳 +91</span>
+                                <input type="tel" id="candidatePhoneInput" class="custom-input phone-input" placeholder="98765 43210" maxlength="10" required autocomplete="tel">
+                            </div>
+                        </div>
+
+                        <!-- Instant Automatic Verification Button -->
+                        <button type="submit" class="btn-gold-primary" id="btnInstantVerify">
+                            <span>Verify & Explore Degree Pathways</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================================================================
+             STEP 2: SELECT 12TH COURSE / STREAM
+             ================================================================ -->
+        <section class="step-section" id="sectionStep2">
+            <div class="luxury-card">
+                <!-- Prominent Candidate Welcome Banner -->
+                <div class="candidate-welcome-banner">
+                    <div class="welcome-top-pill">
+                        <i class="fa-solid fa-sparkles"></i> Authentication Verified Successfully
+                    </div>
+                    <h2 class="welcome-heading">Welcome, <span class="gold-text" id="welcomeCandidateName">Candidate</span>! 👋</h2>
+                    <p class="welcome-subtext">Select the 12th standard course/stream you studied to discover your best degree options, salary insights, and top 5 colleges.</p>
+                </div>
+
+                <div class="section-header" style="margin-top: 15px; margin-bottom: 25px;">
+                    <span class="gold-pill-tag"><i class="fa-solid fa-layer-group"></i> Select 12th Course</span>
+                    <h3 class="section-title" style="font-size: 1.6rem;">Available <span class="gold-text">12th Standard Streams</span></h3>
+                </div>
+
+                <!-- 12th Streams Interactive Cards Grid -->
+                <div class="streams-grid" id="streamsGridContainer">
+                    <!-- Stream Cards dynamically populated from data.js -->
+                </div>
+
+                <!-- Confirm Stream Button Action -->
+                <div class="stream-confirm-actions">
+                    <button type="button" class="btn-gold-primary" id="btnConfirmStream" disabled>
+                        <span>Confirm 12th Course & Explore Pathways</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================================================================
+             STEP 3: DEGREES, SALARY, DURATION & TOP 5 COLLEGES MATRIX
+             ================================================================ -->
+        <section class="step-section" id="sectionStep3">
+            <div class="luxury-card">
+                
+                <!-- Active Stream Summary Banner -->
+                <div class="stream-summary-banner" id="activeStreamBanner">
+                    <div class="banner-left">
+                        <div class="banner-icon" id="bannerStreamIcon">
+                            <i class="fa-solid fa-laptop-code"></i>
+                        </div>
+                        <div class="banner-title-text">
+                            <h2 id="bannerStreamTitle">Computer Science & Maths Stream</h2>
+                            <p id="bannerStreamDesc">Recommended Higher Education Pathways, Durations & Salary Projections</p>
+                        </div>
+                    </div>
+                    <button type="button" class="btn-change-stream" id="btnBackToStreams">
+                        <i class="fa-solid fa-arrows-rotate"></i> Change 12th Stream
+                    </button>
+                </div>
+
+                <!-- Search & Filters -->
+                <div class="filter-search-row">
+                    <div class="search-box-wrap">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="text" id="degreeSearchInput" placeholder="Search degrees (e.g. AI, MBBS, CA, Law, Pilot)...">
+                    </div>
+                    <div>
+                        <button type="button" class="btn-gold-primary" id="btnProceedToThankYou" style="padding: 12px 24px; font-size: 0.95rem;">
+                            <span>Complete & View Summary</span>
+                            <i class="fa-solid fa-check-double"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Degrees Cards Grid -->
+                <div class="degrees-grid" id="degreesGridContainer">
+                    <!-- Injected via script.js -->
+                </div>
+            </div>
+        </section>
+
+        <!-- ================================================================
+             STEP 4: SUMMARY & THANK YOU SECTION
+             ================================================================ -->
+        <section class="step-section" id="sectionStep4">
+            <div class="luxury-card thankyou-wrapper">
+                <div class="gold-trophy-hero">
+                    <i class="fa-solid fa-trophy"></i>
+                </div>
+                
+                <span class="gold-pill-tag"><i class="fa-solid fa-circle-check"></i> Career Roadmap Dossier Ready</span>
+                <h2 class="thankyou-title">Thank You, <span id="thankYouCandidateName">Candidate</span>!</h2>
+                <p class="thankyou-subtitle">You have successfully explored your 12th standard higher education pathways. Here is your personalized Career Guide dossier summary.</p>
+
+                <!-- Dossier Card -->
+                <div class="summary-dossier-card" id="printableDossier">
+                    <div class="dossier-header">
+                        <div class="dossier-student-info">
+                            <h4 id="dossierName">Candidate Name</h4>
+                            <p id="dossierPhone">+91 9876543210</p>
+                        </div>
+                        <div class="dossier-date-badge" id="dossierDate">
+                            Generated: <span id="currentDateDisplay">Today</span>
+                        </div>
+                    </div>
+
+                    <div class="dossier-grid">
+                        <div class="dossier-item">
+                            <div class="dossier-item-label">Selected 12th Stream</div>
+                            <div class="dossier-item-val" id="dossierSelectedStream">-</div>
+                        </div>
+                        <div class="dossier-item">
+                            <div class="dossier-item-label">Eligible Degree Pathways</div>
+                            <div class="dossier-item-val" id="dossierDegreeCount">-</div>
+                        </div>
+                        <div class="dossier-item">
+                            <div class="dossier-item-label">Highest Projected CTC</div>
+                            <div class="dossier-item-val" id="dossierHighestSalary">₹1.2+ Crore PA</div>
+                        </div>
+                    </div>
+
+                    <div class="shortlisted-preview-list">
+                        <div class="shortlisted-title"><i class="fa-solid fa-bookmark"></i> Recommended Target Degree Programs:</div>
+                        <div class="shortlisted-chips-wrap" id="dossierTargetDegrees">
+                            <!-- Populated dynamically -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="thankyou-action-btns">
+                    <button type="button" class="btn-print-dossier" id="btnPrintReport">
+                        <i class="fa-solid fa-print"></i> Download / Print Career Guide
+                    </button>
+                    <button type="button" class="btn-secondary-outline" id="btnExploreAgain">
+                        <i class="fa-solid fa-graduation-cap"></i> Explore Another 12th Course
+                    </button>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- ================================================================
+         TOP 5 COLLEGES MODAL DIALOG
+         ================================================================ -->
+    <div class="modal-backdrop" id="topCollegesModal" role="dialog" aria-modal="true">
+        <div class="modal-content-card">
+            <div class="modal-header">
+                <div class="modal-title-wrap">
+                    <span class="gold-pill-tag" id="modalDegreeCategoryTag">Engineering</span>
+                    <h3 id="modalDegreeTitle">B.Tech in Computer Science</h3>
+                    <p class="modal-subtitle" id="modalDegreeSubtitle">Top 5 Premier Institutions in India & Tamil Nadu</p>
+                </div>
+                <button type="button" class="btn-close-modal" id="btnCloseModal" title="Close Modal">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <!-- Colleges List Container -->
+            <div class="colleges-list" id="modalCollegesListContainer">
+                <!-- Injected via script.js -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification Container -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- Scripts -->
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
